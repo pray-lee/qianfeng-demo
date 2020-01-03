@@ -1,13 +1,32 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import styled from 'styled-components'
 
+// custom button
+const Button = styled.button`
+    color: #ff5252;
+    outline: 0;
+    -webkit-appearance: none;
+    border: 0;
+    border-radius: 5px;
+    border: 1px solid #3276c3;
+    margin-left: 5px
+`
 function TodoInput(props) {
+    let inputRef = null
+    const handleInputChange = (e) => {
+        inputRef.value = e.target.value
+    }
     return (
         <div>
-            <input type="text"/>
-            <button>
+            <input 
+                type="text" 
+                ref={el => inputRef = el}
+                onChange={handleInputChange}
+            />
+            <Button>
                 {props.btnText}
-            </button>
+            </Button>
         </div>
     )
 }
