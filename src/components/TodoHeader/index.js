@@ -1,8 +1,10 @@
 import React from 'react'
 
-function TodoHeader() {
+function TodoHeader(props) {
     return (
-       <h1>待办事项</h1> 
+       <h1>
+           {props.children}
+       </h1> 
     )
 }
 
