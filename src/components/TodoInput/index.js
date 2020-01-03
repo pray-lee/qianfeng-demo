@@ -17,14 +17,17 @@ function TodoInput(props) {
     const handleInputChange = (e) => {
         inputRef.value = e.target.value
     }
+    const handleClick = () => {
+        !!inputRef.value && props.changeTodos(inputRef.value)
+    }
     return (
         <div>
             <input 
-                type="text" 
+                type="text"
                 ref={el => inputRef = el}
                 onChange={handleInputChange}
             />
-            <Button>
+            <Button onClick={handleClick}>
                 {props.btnText}
             </Button>
         </div>
