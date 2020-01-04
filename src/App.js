@@ -31,7 +31,9 @@ export default class App extends Component {
         }
         this.setState(state => ({
             todos: state.todos.concat(item)
-        }))
+        }), () => {
+            console.log('setState completed...')
+        })
     }
     render() {
         return (
