@@ -8,7 +8,23 @@ import {
 export default class App extends Component {
     constructor(props) {
         super(props)
-        this.state = {
+        // this.state = {
+        //     todos: [
+        //         {
+        //             id: 1,
+        //             title: '吃饭',
+        //             isCompleted: true
+        //         },
+        //         {
+        //             id: 2,
+        //             title: '睡觉',
+        //             isCompleted: false
+        //         },
+        //     ]
+        // }
+    }
+    // 这种写法和在constructor里面写是一样的
+        state = {
             todos: [
                 {
                     id: 1,
@@ -22,7 +38,6 @@ export default class App extends Component {
                 },
             ]
         }
-    }
     changeTodos = inputValue => {
         const item = {
             id: Math.random(),
