@@ -20,12 +20,19 @@ function TodoInput(props) {
     const handleClick = () => {
         !!inputRef.value && props.changeTodos(inputRef.value)
     }
+    const handleKeyUp = e => {
+        if (e.keyCode === 13) {
+            handleClick()
+            inputRef.value = ''
+        }
+    }
     return (
         <div>
             <input 
                 type="text"
                 ref={el => inputRef = el}
                 onChange={handleInputChange}
+                onKeyUp={handleKeyUp}
             />
             <Button onClick={handleClick}>
                 {props.btnText}

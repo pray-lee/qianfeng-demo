@@ -23,7 +23,7 @@ export default class App extends Component {
             ]
         }
     }
-    changeTodos = (inputValue) => {
+    changeTodos = inputValue => {
         const item = {
             id: Math.random(),
             title: inputValue,
@@ -35,6 +35,16 @@ export default class App extends Component {
             console.log('setState completed...')
         })
     }
+    onCompletedChange = id => {
+        this.setState(prevState => ({
+            todos: prevState.todos.map(todo => {
+                if (todo.id === id) {
+                    todo.isCompleted = !todo.isCompleted
+                }
+                return todo
+            })
+        }))
+    }
     render() {
         return (
             <>
@@ -42,7 +52,7 @@ export default class App extends Component {
                     待办事项列表
                 </TodoHeader>
                 <TodoInput changeTodos={this.changeTodos} />
-                <TodoList todos={this.state.todos} />
+                <TodoList todos={this.state.todos} onCompletedChange={this.onCompletedChange} />
             </>
         );
     }
