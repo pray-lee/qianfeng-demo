@@ -10,7 +10,14 @@ const Button = styled.button`
     border: 0;
     border-radius: 5px;
     border: 1px solid #3276c3;
-    margin-left: 5px
+    margin-left: 5px;
+    padding:0px 5px
+`
+const Input = styled.input`
+    -webkit-appearance: none;
+    border-radius: 3px;
+    outline:0;
+    border: 1px solid #333
 `
 function TodoInput(props) {
     let inputRef = null
@@ -28,7 +35,7 @@ function TodoInput(props) {
     }
     return (
         <div>
-            <input 
+            <Input 
                 type="text"
                 ref={el => inputRef = el}
                 onChange={handleInputChange}

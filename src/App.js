@@ -27,7 +27,7 @@ export default class App extends Component {
         const item = {
             id: Math.random(),
             title: inputValue,
-            isCompleted: inputValue.length > 3 ? true : false
+            isCompleted: false
         }
         this.setState(state => ({
             todos: state.todos.concat(item)

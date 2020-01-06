@@ -1,8 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const noop = () => {}
-
 function TodoItem(props) {
     const handleCheckboxChange = () => {
         const {
@@ -25,6 +23,12 @@ function TodoItem(props) {
 
 TodoItem.propTypes = {
     onCompletedChange: PropTypes.func.isRequired
+}
+
+const noop = () => {}
+
+TodoItem.defaultProps = {
+    onCompletedChange: noop
 }
 
 export default TodoItem
