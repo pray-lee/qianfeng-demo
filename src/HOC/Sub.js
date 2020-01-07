@@ -1,7 +1,9 @@
 import React from 'react'
 
+// 把包装函数引进来
 import Wrapper from './wrapper'
 
+@Wrapper
 class Sub extends React.Component {
     render() {
         // 这里的this.props其实就是从Wrapper组件传进来的{...this.props}
@@ -14,4 +16,8 @@ class Sub extends React.Component {
     }
 }
 
-export default Wrapper(Sub)
+export default Sub
+
+
+// 没有用装饰器的时候
+// export default Wrapper(Sub)

@@ -10,21 +10,22 @@ import React, { useState, useEffect } from 'react';
 const Counter = () => {
     // 声明一个叫做'count'的state变量
     const [ count, setCount ] = useState(10)
-    console.log(count, 'count')
     const minus = () => {
         setCount(count - 1)
     }
     const add = () => {
-        setCount(prevState => prevState + 1)
+        setCount(prevState => count + 1)
     }
 
     // SImilar to componentDidMount and componentDidUpdate and componentWillUnmount
     useEffect(() => {
+        console.log(count, 'useEffect')
         // update the document title using the browser API
         document.title = `You clicked ${count} times`
-        return () => {
-            document.title = ''
-        }
+        // return () => {
+        //     document.title = ''
+        // }
+        // return 的函数相当于生命周期里面的componentWillUnmount
     }, [count])
     return (
         <>

@@ -40,8 +40,9 @@ class CounterProvider extends React.Component {
 class Counter extends React.Component {
     render() {
         return (
-            // Consumer的children必须是一个方法
+            // Consumer的children必须是一个函数，参数就是provider提供的value 
             // Consumer 是消费者，如果需要用到共享中心里的数据的时候，就需要用consumer包起来，然后通过函数的参数形式把共享中心的数据返回回来。例子如下:
+            // ctx 其实就是Provider.value
             <Consumer>
                 {
                     ctx => <span>{ctx.counter}</span>
@@ -88,6 +89,7 @@ class CounterWrapper extends React.Component {
 
 const App = () => {
     return (
+        // 这个provider的数据是要给谁用的，就包谁,然后他下面的子组件就可以通过consumer访问provider提供的数据了
         <CounterProvider>
             <CounterWrapper></CounterWrapper>
         </CounterProvider>
