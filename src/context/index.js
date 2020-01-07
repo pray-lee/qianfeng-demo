@@ -1,5 +1,7 @@
 import React, { createContext } from 'react';
 
+// 跨组件通讯的方法
+
 const { Provider, Consumer } = createContext()
 // Provider相当于一个提供者。而Consumer相当于使用者，前者提供数据源，后者通过函数的参数形式返回数据源里的数据供子组件使用
 
@@ -9,10 +11,14 @@ class CounterProvider extends React.Component {
         counter: 100
     }
     increment = () => {
-        this.setState(state => state + 1)
+        this.setState(state => ({
+            counter: state.counter + 1
+        }))
     }
     decrement = () => {
-        this.setState(state => state - 1)
+        this.setState(state => ({
+            counter: state.counter - 1
+        }))
     }
     render() {
         return (
@@ -33,7 +39,7 @@ class Counter extends React.Component {
             // Consumer 是消费者，如果需要用到共享中心里的数据的时候，就需要用consumer包起来，然后通过函数的参数形式把共享中心的数据返回回来。例子如下:
             <Consumer>
                 {
-                    ctx => <span>{ctx.counter}></span>
+                    ctx => <span>{ctx.counter}</span>
                 }
             </Consumer>
         )
@@ -51,10 +57,10 @@ class CounterBtn extends React.Component {
                         ctx.increment
                         :
                         ctx.decrement
+                        return <button onClick={handler}>{this.props.children}</button>
                     }
                 }
             </Consumer>
-             <button>{this.props.children}</button>
         );
     }
 }
