@@ -10,19 +10,29 @@ import React, { useState, useEffect } from 'react';
 const Counter = () => {
     // 声明一个叫做'count'的state变量
     const [ count, setCount ] = useState(10)
+    console.log(count, 'count')
+    const minus = () => {
+        setCount(count - 1)
+    }
+    const add = () => {
+        setCount(prevState => prevState + 1)
+    }
 
     // SImilar to componentDidMount and componentDidUpdate and componentWillUnmount
     useEffect(() => {
         // update the document title using the browser API
         document.title = `You clicked ${count} times`
+        return () => {
+            document.title = ''
+        }
     })
     return (
         <>
 
             <h3 style={{"borderTop": "3px solid #333"}}>Hooks demo</h3>
-            <button onClick={() => setCount(count-1) }>-</button>
+            <button onClick={minus}>-</button>
             <span>{count}</span>
-            <button onClick={() => setCount(count+1)}>+</button>
+            <button onClick={add}>+</button>
         </>
     )
 }
