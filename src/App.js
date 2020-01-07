@@ -1,9 +1,14 @@
 import React, { Component } from 'react';
+
+// todoList
 import {
     TodoHeader,
     TodoInput,
     TodoList
 } from './components'
+
+// hooks
+import Counter from './hooks'
 
 export default class App extends Component {
     constructor(props) {
@@ -24,20 +29,20 @@ export default class App extends Component {
         // }
     }
     // 这种写法和在constructor里面写是一样的
-        state = {
-            todos: [
-                {
-                    id: 1,
-                    title: '吃饭',
-                    isCompleted: true
-                },
-                {
-                    id: 2,
-                    title: '睡觉',
-                    isCompleted: false
-                },
-            ]
-        }
+    state = {
+        todos: [
+            {
+                id: 1,
+                title: '吃饭',
+                isCompleted: true
+            },
+            {
+                id: 2,
+                title: '睡觉',
+                isCompleted: false
+            },
+        ]
+    }
     changeTodos = inputValue => {
         const item = {
             id: Math.random(),
@@ -62,13 +67,18 @@ export default class App extends Component {
     }
     render() {
         return (
-            <>
-                <TodoHeader>
-                    待办事项列表
-                </TodoHeader>
-                <TodoInput changeTodos={this.changeTodos} />
-                <TodoList todos={this.state.todos} onCompletedChange={this.onCompletedChange} />
-            </>
+            <React.Fragment>
+                <>
+                    <TodoHeader>
+                        待办事项列表
+                    </TodoHeader>
+                    <TodoInput changeTodos={this.changeTodos} />
+                    <TodoList todos={this.state.todos} onCompletedChange={this.onCompletedChange} />
+                </>
+                <>
+                    <Counter />
+                </>
+            </React.Fragment>
         );
     }
 }
