@@ -25,7 +25,7 @@ const Counter = () => {
         return () => {
             document.title = ''
         }
-    })
+    }, [count])
     return (
         <>
 

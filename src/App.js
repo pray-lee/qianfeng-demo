@@ -10,6 +10,9 @@ import {
 // hooks
 import Counter from './hooks'
 
+// context
+import CounterContext from './context'
+
 export default class App extends Component {
     constructor(props) {
         super(props)
@@ -77,6 +80,9 @@ export default class App extends Component {
                 </>
                 <>
                     <Counter />
+                </>
+                <>
+                    <CounterContext />
                 </>
             </React.Fragment>
         );
