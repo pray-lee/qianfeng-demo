@@ -5,7 +5,7 @@ import React, { createContext } from 'react';
 const { Provider, Consumer } = createContext()
 // Provider相当于一个提供者。而Consumer相当于使用者，前者提供数据源，后者通过函数的参数形式返回数据源里的数据供子组件使用
 
-//定义一个provider包装, 这里是数据的提供者,需要共享的数据都放在这里
+//定义一个provider包装, 这里是数据的提供者,需要共享的数据都放在这里----------------------------------------------------------------------
 class CounterProvider extends React.Component {
     state = {
         counter: 100
@@ -33,9 +33,14 @@ class CounterProvider extends React.Component {
     }
 }
 
+
+// -----------------------------------------------------------------------------------------------------------------------------
+
+
 class Counter extends React.Component {
     render() {
         return (
+            // Consumer的children必须是一个方法
             // Consumer 是消费者，如果需要用到共享中心里的数据的时候，就需要用consumer包起来，然后通过函数的参数形式把共享中心的数据返回回来。例子如下:
             <Consumer>
                 {

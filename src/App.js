@@ -8,10 +8,13 @@ import {
 } from './components'
 
 // hooks
-import Counter from './hooks'
+import HooksCounter from './hooks'
 
 // context
 import CounterContext from './context'
+
+// HOC
+import WrapperedSub from './HOC'
 
 export default class App extends Component {
     constructor(props) {
@@ -79,10 +82,13 @@ export default class App extends Component {
                     <TodoList todos={this.state.todos} onCompletedChange={this.onCompletedChange} />
                 </>
                 <>
-                    <Counter />
+                    <HooksCounter />
                 </>
                 <>
                     <CounterContext />
+                </>
+                <>
+                    <WrapperedSub name="HOC higher-order-component"/>
                 </>
             </React.Fragment>
         );
