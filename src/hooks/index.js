@@ -14,12 +14,11 @@ const Counter = () => {
         setCount(count - 1)
     }
     const add = () => {
-        setCount(prevState => count + 1)
+        setCount(prevState => prevState + 1)
     }
 
     // SImilar to componentDidMount and componentDidUpdate and componentWillUnmount
     useEffect(() => {
-        console.log(count, 'useEffect')
         // update the document title using the browser API
         document.title = `You clicked ${count} times`
         // return () => {
