@@ -10,9 +10,9 @@
 
 <body>
     <div>
-        <button onclick="dispatch({type: 'JIAN'})">-</button>
+        <button onclick="store.dispatch({type: 'JIAN'})">-</button>
         <span id="countDisplay">10</span>
-        <button onclick="dispatch({type: 'JIA'})">+</button>
+        <button onclick="store.dispatch({type: 'JIA'})">+</button>
     </div>
     <script>
         const countDisplay = document.querySelector('#countDisplay')
@@ -21,34 +21,64 @@
             count: 5
         }
 
-        // 渲染
-        const renderCount = state => {
-            countDisplay.innerHTML = state.count
-        }
-        renderCount(countState)
-
         // 创建action, 定义一系列的逻辑代码、异步操作
-        const changeState = action => {
+        const changeState = (state, action) => {
+            if (!state) {
+                return countState
+            }
             switch (action.type) {
                 case 'JIAN':
-                    countState.count -= 1
+                    return {
+                        ...state,
+                        count: state.count - 1
+                    }
                     break
                 case 'JIA':
-                    countState.count += 1
+                    return {
+                        ...state,
+                        count: state.count + 1
+                    }
                     break
                 default:
-                    break
+                    return state
             }
         }
 
-        // 定义dispatcher
-        const dispatch = action => {
-            // 修改状态
-            changeState(action)
-                // 更新view
-            renderCount(countState)
+        // 创建一个store工厂
+        const createStore = (changeState) => {
+            let state = null
+                // 获取Store里的state
+            const getState = () => state
+            const listeners = []
+                // 添加订阅
+            const subscribe = listener => listeners.push(listener)
+                // 事件派发
+            const dispatch = action => {
+                state = changeState(state, action)
+                    // 每次触发的时候，让每一个参加订阅的都触发事件
+                listeners.forEach(listener => listener())
+            }
+
+            dispatch({})
+
+            return {
+                getState,
+                dispatch,
+                subscribe
+            }
         }
+        const store = createStore(changeState)
+
+        // 渲染
+        const renderCount = () => {
+            countDisplay.innerHTML = store.getState().count
+        }
+        renderCount()
+
+        // 添加订阅
+        store.subscribe(renderCount)
     </script>
+
 </body>
 
 </html>
