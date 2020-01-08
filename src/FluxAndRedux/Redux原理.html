@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>FLux原理</title>
+</head>
+
+<body>
+    <div>
+        <button onclick="dispatch({type: 'JIAN'})">-</button>
+        <span id="countDisplay">10</span>
+        <button onclick="dispatch({type: 'JIA'})">+</button>
+    </div>
+    <script>
+        const countDisplay = document.querySelector('#countDisplay')
+            // 初始state
+        const countState = {
+            count: 5
+        }
+
+        // 渲染
+        const renderCount = state => {
+            countDisplay.innerHTML = state.count
+        }
+        renderCount(countState)
+
+        // 创建action, 定义一系列的逻辑代码、异步操作
+        const changeState = action => {
+            switch (action.type) {
+                case 'JIAN':
+                    countState.count -= 1
+                    break
+                case 'JIA':
+                    countState.count += 1
+                    break
+                default:
+                    break
+            }
+        }
+
+        // 定义dispatcher
+        const dispatch = action => {
+            // 修改状态
+            changeState(action)
+                // 更新view
+            renderCount(countState)
+        }
+    </script>
+</body>
+
+</html>
