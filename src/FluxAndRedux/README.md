@@ -9,4 +9,4 @@
 - store更改状态后事件被触发，该事件的处理程序会通知view去获取最新的数据
 
 ### 大致流程：（自己理解的）
-#### 用户触发操作 -> 派发action -> 通过action更改store里的状态 -> 通过store触发的时间更改view
+#### 用户触发操作 -> 派发action -> 通过action更改store里的state -> 通过store触发的事件更改view
