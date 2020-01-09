@@ -46,11 +46,13 @@
 
         // 创建一个store工厂
         const createStore = (changeState) => {
+            // state统一放在Store里面管理
             let state = null
                 // 获取Store里的state
             const getState = () => state
+                // 创建Store里面state改变之后的回调函数
             const listeners = []
-                // 添加订阅
+                // 创建回调函数订阅的函数
             const subscribe = listener => listeners.push(listener)
                 // 事件派发
             const dispatch = action => {

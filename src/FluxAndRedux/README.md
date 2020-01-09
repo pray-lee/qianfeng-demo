@@ -10,3 +10,4 @@
 
 ### 大致流程：（自己理解的）
 #### 用户触发操作 -> 派发action -> 通过action更改store里的state -> 通过store触发的事件更改view
+#### Action -> Dispatcher -> Store -> View -> action -> Dispatcher ...
