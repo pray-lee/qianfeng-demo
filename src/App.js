@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 // todoList
 import {
@@ -16,28 +16,27 @@ import CounterContext from './context'
 // HOC
 import WrapperedSub from './HOC'
 
-export default class App extends Component {
+export default class App extends React.Component {
     constructor(props) {
-        super(props)
-        // this.state = {
-        //     todos: [
-        //         {
-        //             id: 1,
-        //             title: '吃饭',
-        //             isCompleted: true
-        //         },
-        //         {
-        //             id: 2,
-        //             title: '睡觉',
-        //             isCompleted: false
-        //         },
-        //     ]
-        // }
-    }
-    // 这种写法和在constructor里面写是一样的
+            super(props)
+                // this.state = {
+                //     todos: [
+                //         {
+                //             id: 1,
+                //             title: '吃饭',
+                //             isCompleted: true
+                //         },
+                //         {
+                //             id: 2,
+                //             title: '睡觉',
+                //             isCompleted: false
+                //         },
+                //     ]
+                // }
+        }
+        // 这种写法和在constructor里面写是一样的
     state = {
-        todos: [
-            {
+        todos: [{
                 id: 1,
                 title: '吃饭',
                 isCompleted: true
@@ -72,25 +71,36 @@ export default class App extends Component {
         }))
     }
     render() {
-        return (
-            <React.Fragment>
-                <>
-                    <TodoHeader>
-                        待办事项列表
-                    </TodoHeader>
-                    <TodoInput changeTodos={this.changeTodos} />
-                    <TodoList todos={this.state.todos} onCompletedChange={this.onCompletedChange} />
-                </>
-                <>
-                    <HooksCounter />
-                </>
-                <>
-                    <CounterContext />
-                </>
-                <>
-                    <WrapperedSub name="HOC higher-order-component"/>
-                </>
-            </React.Fragment>
+        return ( <
+            React.Fragment >
+            <
+            >
+            <
+            TodoHeader >
+            待办事项列表 <
+            /TodoHeader> <
+            TodoInput changeTodos = { this.changeTodos }
+            /> <
+            TodoList todos = { this.state.todos }
+            onCompletedChange = { this.onCompletedChange }
+            /> <
+            /> <
+            >
+            <
+            HooksCounter / >
+            <
+            /> <
+            >
+            <
+            CounterContext / >
+            <
+            /> <
+            >
+            <
+            WrapperedSub name = "HOC higher-order-component" / >
+            <
+            /> <
+            /React.Fragment>
         );
     }
 }
