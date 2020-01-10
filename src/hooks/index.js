@@ -28,7 +28,6 @@ const Counter = () => {
     }, [count])
     return (
         <>
-
             <h3 style={{"borderTop": "3px solid #333"}}>Hooks demo</h3>
             <button onClick={minus}>-</button>
             <span>{count}</span>

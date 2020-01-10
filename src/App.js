@@ -75,40 +75,27 @@ export default class App extends React.Component {
     }
     render() {
         return ( 
-            <
-            React.Fragment >
-            <
-            >
-            <
-            TodoHeader >
-            待办事项列表 <
-            /TodoHeader> <
-            TodoInput changeTodos = { this.changeTodos }
-            /> <
-            TodoList todos = { this.state.todos }
-            onCompletedChange = { this.onCompletedChange }
-            /> <
-            /> <
-            >
-            <
-            HooksCounter / >
-            <
-            /> <
-            >
-            <
-            CounterContext / >
-            <
-            /> <
-            >
-            <
-            WrapperedSub name = "HOC higher-order-component" / >
-            <
-            />
+            <React.Fragment>
+            <>
+                <TodoHeader>
+                    待办事项列表 
+                </TodoHeader> 
+                <TodoInput changeTodos = { this.changeTodos }/>
+                <TodoList todos = { this.state.todos } onCompletedChange = { this.onCompletedChange } /> 
+            </> 
+            <>
+                <HooksCounter / >
+            </> 
+            <>
+                <CounterContext / >
+            </> 
+            <>
+                <WrapperedSub name = "HOC higher-order-component" / >
+            </>
             <>
                 <CartList />
             </>
-            <
-            /React.Fragment>
+            </React.Fragment>
         );
     }
 }
