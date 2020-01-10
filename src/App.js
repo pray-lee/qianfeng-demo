@@ -20,8 +20,8 @@ import WrapperedSub from './HOC'
 import CartList from './FluxAndRedux/Redux'
 
 export default class App extends React.Component {
-    constructor(props) {
-            super(props)
+    // constructor(props) {
+            // super(props)
                 // this.state = {
                 //     todos: [
                 //         {
@@ -36,7 +36,7 @@ export default class App extends React.Component {
                 //         },
                 //     ]
                 // }
-        }
+        // }
         // 这种写法和在constructor里面写是一样的
     state = {
         todos: [{
