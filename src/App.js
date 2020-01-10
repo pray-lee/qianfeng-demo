@@ -16,6 +16,9 @@ import CounterContext from './context'
 // HOC
 import WrapperedSub from './HOC'
 
+//Redux
+import CartList from './FluxAndRedux/Redux'
+
 export default class App extends React.Component {
     constructor(props) {
             super(props)
@@ -71,7 +74,8 @@ export default class App extends React.Component {
         }))
     }
     render() {
-        return ( <
+        return ( 
+            <
             React.Fragment >
             <
             >
@@ -99,7 +103,11 @@ export default class App extends React.Component {
             <
             WrapperedSub name = "HOC higher-order-component" / >
             <
-            /> <
+            />
+            <>
+                <CartList />
+            </>
+            <
             /React.Fragment>
         );
     }
