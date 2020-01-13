@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { ThemeProvider } from 'styled-components'
 import {
 	increment,
 	decrement
@@ -14,14 +14,9 @@ export default class CartList extends React.Component {
 	state = {
 		carts: []
 	}
-	// static getDerivedStateFromProps(props, state) {
-	// 	return {
-	// 		carts: props.store.getState().cart
-	// 	}
-	// }
 	getState = () => {
 		this.setState({
-			carts:this.props.store.getState().cart 
+			carts: this.props.store.getState().cart
 		})
 	}
 	componentDidMount() {
@@ -43,8 +38,8 @@ export default class CartList extends React.Component {
 					</tr>
 				</thead>
 				<tbody>
-					{this.state.carts.map(item => {
-						return (
+					{
+						this.state.carts.map(item => (
 							<tr key={item.id}>
 								<td>{item.id}</td>
 								<td>{item.name}</td>
@@ -52,11 +47,11 @@ export default class CartList extends React.Component {
 								<td>{item.amount}</td>
 								<td>
 									<button onClick={() => this.props.store.dispatch(decrement(item.id))}>-</button>
-									<button onClick={() => this.props.store.dispatch(increment(item.id))}>+</button>
+									<button onClick={() =>this.props.store.dispatch(increment(item.id))}>+</button>
 								</td>
 							</tr>
-						)
-					})}
+						))
+					}
 				</tbody>
 			</table>
 			</>
