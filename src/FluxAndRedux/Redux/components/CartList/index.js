@@ -1,10 +1,37 @@
 import React from 'react'
+import styled from 'styled-components'
+import {
+	increment,
+	decrement
+} from '../../actions/cart'
+const H3 = styled.h3`
+	border-top: 3px solid #ff5252;
+	font-size: 24px;
+	color: #ff5252
+`
 
 export default class CartList extends React.Component {
+	state = {
+		carts: []
+	}
+	// static getDerivedStateFromProps(props, state) {
+	// 	return {
+	// 		carts: props.store.getState().cart
+	// 	}
+	// }
+	getState = () => {
+		this.setState({
+			carts:this.props.store.getState().cart 
+		})
+	}
+	componentDidMount() {
+		this.getState()
+		this.props.store.subscribe(this.getState)
+	}
 	render() {
 		return (
 			<>
-			<h3 style={{borderTop: "3px solid #333"}}>Redux购物车</h3>
+			<H3>Redux购物车</H3>
 			<table>
 				<thead>
 					<tr>
@@ -16,28 +43,20 @@ export default class CartList extends React.Component {
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
-						<td>1</td>
-						<td>苹果</td>
-						<td>2</td>
-						<td>8888</td>
-						<td>
-							<button>-</button>
-							<span>10</span>
-							<button>+</button>
-						</td>
-					</tr>
-					<tr>
-						<td>2</td>
-						<td>梨</td>
-						<td>5</td>
-						<td>6666</td>
-						<td>
-							<button>-</button>
-							<span>20</span>
-							<button>+</button>
-						</td>
-					</tr>
+					{this.state.carts.map(item => {
+						return (
+							<tr key={item.id}>
+								<td>{item.id}</td>
+								<td>{item.name}</td>
+								<td>{item.price}</td>
+								<td>{item.amount}</td>
+								<td>
+									<button onClick={() => this.props.store.dispatch(decrement(item.id))}>-</button>
+									<button onClick={() => this.props.store.dispatch(increment(item.id))}>+</button>
+								</td>
+							</tr>
+						)
+					})}
 				</tbody>
 			</table>
 			</>
