@@ -8,8 +8,8 @@ function TodoList(props) {
             {
                 props.todos.map(item => <TodoItem 
                     key={item.id}
-                    {...item}
                     onCompletedChange={props.onCompletedChange}
+                    {...item}
                 />)
             }
         </ul>

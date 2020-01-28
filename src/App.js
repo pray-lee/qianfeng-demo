@@ -80,8 +80,8 @@ export default class App extends React.Component {
                 <TodoHeader>
                     待办事项列表 
                 </TodoHeader> 
-                <TodoInput changeTodos = { this.changeTodos }/>
-                <TodoList todos = { this.state.todos } onCompletedChange = { this.onCompletedChange } /> 
+                <TodoInput changeTodos={ this.changeTodos } />
+                <TodoList todos={ this.state.todos } onCompletedChange={ this.onCompletedChange } /> 
             </> 
             <>
                 <HooksCounter / >
@@ -90,7 +90,7 @@ export default class App extends React.Component {
                 <CounterContext / >
             </> 
             <>
-                <WrapperedSub name = "HOC higher-order-component" / >
+                <WrapperedSub name="HOC higher-order-component" / >
             </>
             <>
                 <CartList />
