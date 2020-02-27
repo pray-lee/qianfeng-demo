@@ -20,6 +20,7 @@ export default class CartList extends React.Component {
 	}
 	componentDidMount() {
 		// 加入订阅
+        this.getState()
 		this.props.store.subscribe(this.getState)
 	}
 	render() {
