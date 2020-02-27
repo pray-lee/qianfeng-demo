@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 function TodoItem(props) {
     const handleCheckboxChange = () => {
         const {
-            onCompletedChange = noop,
+            onCompletedChange,
             id
         } = props
         onCompletedChange(id)

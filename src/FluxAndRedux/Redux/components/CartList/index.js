@@ -19,7 +19,6 @@ export default class CartList extends React.Component {
 		})
 	}
 	componentDidMount() {
-		this.getState()
 		// 加入订阅
 		this.props.store.subscribe(this.getState)
 	}

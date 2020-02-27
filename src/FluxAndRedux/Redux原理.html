@@ -57,7 +57,7 @@
                 // 事件派发
             const dispatch = action => {
                 state = changeState(state, action)
-                    // 每次触发的时候，让每一个参加订阅的都触发事件
+                // 每次触发的时候，让每一个参加订阅的都触发事件
                 listeners.forEach(listener => listener())
             }
 
