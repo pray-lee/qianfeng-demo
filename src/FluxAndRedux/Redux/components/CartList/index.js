@@ -9,10 +9,6 @@ const H3 = styled.h3`
 	font-size: 24px;
 	color: #ff5252
 `
-const H4 = styled.h4`
-	font-size: 30px
-`
-
 export default class CartList extends React.Component {
 	state = {
 		carts: []

@@ -1,11 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, {useEffect, useState} from 'react';
 
 // useState不会把新的state和旧的state进行合并
 // useState唯一的参数就是初始state
 // state不一定要是一个对象
 // 初始state参数只有在第一次渲染时会被用到
 
-// 因为有了Hooks,之前的‘无状态组件’就可以称之为‘函数组件’
+// 因为有了Hooks,之前的‘无状态组件’就可以称之为‘函数组件’.
+
 
 const Counter = () => {
     // 声明一个叫做'count'的state变量
@@ -26,6 +27,7 @@ const Counter = () => {
         // }
         // return 的函数相当于生命周期里面的componentWillUnmount
     }, [count])
+
     return (
         <>
             <h3 style={{"borderTop": "3px solid #333"}}>Hooks demo</h3>

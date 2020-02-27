@@ -6,7 +6,6 @@ import {
     TodoInput,
     TodoList
 } from './components'
-
 // hooks
 import HooksCounter from './hooks'
 
@@ -84,13 +83,13 @@ export default class App extends React.Component {
                 <TodoList todos={ this.state.todos } onCompletedChange={ this.onCompletedChange } /> 
             </> 
             <>
-                <HooksCounter / >
+                <HooksCounter />
             </> 
             <>
-                <CounterContext / >
+                <CounterContext />
             </> 
             <>
-                <WrapperedSub name="HOC higher-order-component" / >
+                <WrapperedSub name="HOC higher-order-component" />
             </>
             <>
                 <CartList />
