@@ -9,14 +9,12 @@ class BlogList extends React.Component {
         // 去派发一下异步的action ,在这个action里面会有处理数据的部分，就是再新发一个action去接受返回来的数据
         this.props.getBlogList()
     }
-
     render() {
         const {
             list,
             isLoading,
             errMsg
         } = this.props.blogLists
-        console.log(this.props)
         return (
             isLoading ?
                 <div>loading.......</div>

@@ -1,4 +1,5 @@
 import React from 'react';
+import {BrowserRouter as Router} from 'react-router-dom'
 
 // todoList
 import {
@@ -20,6 +21,9 @@ import CartList from './FluxAndRedux/ReactRedux'
 
 //AsyncActionDemo
 import AsyncActionDemo from "./redux_at_work_standard";
+
+//RreactRouter
+import RouterDemo from './ReactRouter/index'
 
 export default class App extends React.Component {
     // constructor(props) {
@@ -100,6 +104,11 @@ export default class App extends React.Component {
                 </>
                 <>
                     <AsyncActionDemo/>
+                </>
+                <>
+                    <Router>
+                        <RouterDemo></RouterDemo>
+                    </Router>
                 </>
             </React.Fragment>
         );
