@@ -19,7 +19,7 @@ export default class RouterDemo extends React.Component {
                 </ul>
                 <div className="router-view">
                     <Switch>
-                        <Route path="/" exact>
+                        <Route path="/home" exact>
                             <Home/>
                         </Route>
                         <Route path="/user">
@@ -28,9 +28,11 @@ export default class RouterDemo extends React.Component {
                         <Route path="/article">
                             <Article/>
                         </Route>
-                        <Redirect to="/404">
+                        <Route path="/404">
                             <NotFound/>
-                        </Redirect>
+                        </Route>
+                        <Redirect to="/home" from="/" exact />
+                        <Redirect to="/404"/>
                     </Switch>
                 </div>
             </>
