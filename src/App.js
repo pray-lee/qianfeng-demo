@@ -16,33 +16,36 @@ import CounterContext from './context'
 import WrapperedSub from './HOC'
 
 //Redux
-import CartList from './FluxAndRedux/Redux'
+import CartList from './FluxAndRedux/ReactRedux'
+
+//AsyncActionDemo
+import AsyncActionDemo from "./redux_at_work_standard";
 
 export default class App extends React.Component {
     // constructor(props) {
-            // super(props)
-                // this.state = {
-                //     todos: [
-                //         {
-                //             id: 1,
-                //             title: '吃饭',
-                //             isCompleted: true
-                //         },
-                //         {
-                //             id: 2,
-                //             title: '睡觉',
-                //             isCompleted: false
-                //         },
-                //     ]
-                // }
-        // }
-        // 这种写法和在constructor里面写是一样的
+    // super(props)
+    // this.state = {
+    //     todos: [
+    //         {
+    //             id: 1,
+    //             title: '吃饭',
+    //             isCompleted: true
+    //         },
+    //         {
+    //             id: 2,
+    //             title: '睡觉',
+    //             isCompleted: false
+    //         },
+    //     ]
+    // }
+    // }
+    // 这种写法和在constructor里面写是一样的
     state = {
         todos: [{
-                id: 1,
-                title: '吃饭',
-                isCompleted: true
-            },
+            id: 1,
+            title: '吃饭',
+            isCompleted: true
+        },
             {
                 id: 2,
                 title: '睡觉',
@@ -72,28 +75,32 @@ export default class App extends React.Component {
             })
         }))
     }
+
     render() {
-        return ( 
+        return (
             <React.Fragment>
-            <>
-                <TodoHeader>
-                    待办事项列表 
-                </TodoHeader> 
-                <TodoInput changeTodos={ this.changeTodos } />
-                <TodoList todos={ this.state.todos } onCompletedChange={ this.onCompletedChange } /> 
-            </> 
-            <>
-                <HooksCounter />
-            </> 
-            <>
-                <CounterContext />
-            </> 
-            <>
-                <WrapperedSub name="HOC higher-order-component" />
-            </>
-            <>
-                <CartList />
-            </>
+                <>
+                    <TodoHeader>
+                        待办事项列表
+                    </TodoHeader>
+                    <TodoInput changeTodos={this.changeTodos}/>
+                    <TodoList todos={this.state.todos} onCompletedChange={this.onCompletedChange}/>
+                </>
+                <>
+                    <HooksCounter/>
+                </>
+                <>
+                    <CounterContext/>
+                </>
+                <>
+                    <WrapperedSub name="HOC higher-order-component"/>
+                </>
+                <>
+                    <CartList/>
+                </>
+                <>
+                    <AsyncActionDemo/>
+                </>
             </React.Fragment>
         );
     }
