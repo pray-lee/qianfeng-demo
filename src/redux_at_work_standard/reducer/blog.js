@@ -6,7 +6,6 @@ const blogs = {
 }
 
 export default (state=blogs, action) => {
-    console.log(action.type)
     switch (action.type) {
         case actionTypes.GET_DATA_START:
             return {
