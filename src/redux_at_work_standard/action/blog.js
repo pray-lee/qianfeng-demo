@@ -1,11 +1,17 @@
 import actionTypes from './actionTypes'
 import {getBlogData} from "../api/blog";
 
+// 开始请求
+const getBlogListStart = () => {
+    return {
+        type: actionTypes.GET_DATA_START,
+    }
+}
 // 请求成功之后的action
-const getBlogListSuccess = blogList => {
+const getBlogListSuccess = payload => {
     return {
         type: actionTypes.GET_DATA_SUCCESS,
-        payload: blogList
+        payload
     }
 }
 
@@ -13,13 +19,21 @@ const getBlogListSuccess = blogList => {
 const getBlogListFailed = error => {
     return {
         type: actionTypes.GET_DATA_FAILED,
-        payload: error
+        error
     }
 }
 
 // 请求过程,如果请求成功，调用成功的action, 反之调用失败的action,都是需要定义的
-export const getBlogList = () => dispatch => {
-   getBlogData()
-       .then(res => dispatch(getBlogListSuccess(res.data)))
-       .catch(err => dispatch(getBlogListFailed(err)))
+export const getBlogList = () => {
+    return dispatch => {
+        dispatch(getBlogListStart())
+        getBlogData()
+            .then(res => {
+                if (res.status === 200)
+                    dispatch(getBlogListSuccess(res.data))
+                else
+                    dispatch(getBlogListFailed('有问题，数据没有请求到'))
+            })
+            .catch(err => dispatch(getBlogListFailed('捕获了异常....代码有问题')))
+    }
 }
