@@ -8,7 +8,7 @@ export default () => {
             <Link to="/article/1">文章1</Link>
             <Link to="/article/2">文章2</Link>
             <div>
-                <Route path="/article/:id" exact>
+                <Route path="/article/:id">
                     <ArticleDetail />
                 </Route>
             </div>

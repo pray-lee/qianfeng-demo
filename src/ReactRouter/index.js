@@ -4,6 +4,7 @@ import {Home, User, Article, NotFound, ArticleDetail} from "./views";
 
 export default class RouterDemo extends React.Component {
     render() {
+        console.log(this.props, 'router')
         return (
             <>
                 <ul>

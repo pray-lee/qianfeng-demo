@@ -1,5 +1,5 @@
 import React from 'react';
-import {BrowserRouter as Router} from 'react-router-dom'
+import {BrowserRouter as Router, Route} from 'react-router-dom'
 
 // todoList
 import {
@@ -107,7 +107,7 @@ export default class App extends React.Component {
                 </>
                 <>
                     <Router>
-                        <RouterDemo></RouterDemo>
+                        <Route component={RouterDemo} />
                     </Router>
                 </>
             </React.Fragment>
