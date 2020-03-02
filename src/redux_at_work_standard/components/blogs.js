@@ -36,6 +36,7 @@ class BlogList extends React.Component {
 }
 
 const mapState = state => ({
+    // blogs是combineReducer里面设置的名称
     blogLists: state.blogs
 })
 export default connect(mapState, {getBlogList})(BlogList)
