@@ -19,6 +19,9 @@ import WrapperedSub from './HOC'
 //Redux
 import CartList from './FluxAndRedux/ReactRedux'
 
+//Mobx
+import MobxDemo from './Mobx'
+
 //AsyncActionDemo
 import AsyncActionDemo from "./redux_at_work_standard";
 
@@ -107,8 +110,11 @@ export default class App extends React.Component {
                 </>
                 <>
                     <Router>
-                        <Route component={RouterDemo} />
+                        <Route component={RouterDemo}/>
                     </Router>
+                </>
+                <>
+                    <MobxDemo />
                 </>
             </React.Fragment>
         );
